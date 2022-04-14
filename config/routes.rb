@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+
   # 管理者用
   # URL /admin/sign_in ...
-  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
 
@@ -12,21 +13,21 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
-  ### 後でonlyで減らす
+  ### routing一覧からアクションをヒントにonlyで制限
   namespace :admin do
-    resources :items
-    resources :homes
-    resources :customers
-    resources :orders
-    resources :order_details
+    resources :items, only: [:index, :new, :show, :edit, :create, :update]
+    resources :homes,
+    resources :customers, only: [:index, :show, :edit, :update]
+    resources :orders, only: [:show, :update]
+    resources :order_details, only: [:update]
   end
 
   namespace :public do
-    resources :items
+    resources :items, only: [:index, :show]
     resources :homes
-    resources :customers
-    resources :orders
-    resources :addresses
-    resources :cart_items
+    resources :customers, only: [:show, :edit, :update]
+    resources :orders, only: [:new, :create, :index, :show]
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+    resources :cart_items, only: [:index, :create, :update, :destroy]
   end
 end
