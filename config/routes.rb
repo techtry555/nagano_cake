@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
-  ### routing一覧からアクションをヒントにonlyで制限
+  ## routing一覧からアクションをヒントにonlyで制限
   namespace :admin do
     resources :items, only: [:index, :new, :show, :edit, :create, :update]
     resources :homes,
