@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  ### 後でrootパス設定
+  ### root to: 'homes#top'
 
   # 管理者用
   # URL /admin/sign_in ...

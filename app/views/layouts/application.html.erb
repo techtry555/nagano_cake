@@ -16,31 +16,31 @@
           <!-- login後-->
           <% if admin_signed_in? %>
             <li>
-              <%= link_to  '商品一覧' , admin_items_path %>
+              <%= link_to  "商品一覧" , admin_items_path %>
             </li>
             <li>
-              <%= link_to  '会員一覧' , admin_customers_path %>
+              <%= link_to  "会員一覧" , admin_customers_path %>
             </li>
             <li>
-              <%= link_to  '注文履歴一覧' , admin_path %>
+              <%= link_to  "注文履歴一覧" , admin_path %>
             </li>
             <li>
-              <%= link_to  'ログアウト' , new_admin_session_path %>
+              <%= link_to  "ログアウト" , new_admin_session_path %>
             </li><br />
           <!-- login前-->
           <% else %>
             <li>
               <!--後で about_path に変更-->
-              <%= link_to  'About' , public_homes_path %>
+              <%= link_to  "About" , public_homes_path %>
             </li>
             <li>
-              <%= link_to  '商品一覧' , admin_items_path %>
+              <%= link_to  "商品一覧" , admin_items_path %>
             </li>
             <li>
-              <%= link_to  '新規登録' , new_admin_item_path %>
+              <%= link_to  "新規登録" , new_admin_item_path %>
             </li>
             <li>
-              <%= link_to  'ログイン' , new_admin_session_path %>
+              <%= link_to  "ログイン" , new_admin_session_path %>
             </li><br />
           <% end %>
         </ul>

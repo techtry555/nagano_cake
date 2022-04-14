@@ -1,5 +1,6 @@
 <h1>管理者ログイン</h1>
-
+<!--今回、管理者側はログイン機能のみを使用するため、このファイル(session)のみ修正-->
+<!--form_forの修正。-->
 <%= form_with model: @admin, url: admin_session_path do |f| %>
   <div class="field">
     <%= f.label :メールアドレス %>
@@ -16,4 +17,4 @@
   </div>
 <% end %>
 
-<%= render "admin/shared/links" %>
+<%= render "admin/shared/links" %> <%# adminsから修正 %>
