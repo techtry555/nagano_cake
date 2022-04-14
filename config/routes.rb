@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   ## routing一覧からアクションをヒントにonlyで制限
   namespace :admin do
     resources :items, only: [:index, :new, :show, :edit, :create, :update]
-    resources :homes,
+    resources :homes
     resources :customers, only: [:index, :show, :edit, :update]
     resources :orders, only: [:show, :update]
     resources :order_details, only: [:update]
