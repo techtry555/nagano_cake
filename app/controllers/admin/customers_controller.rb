@@ -14,11 +14,13 @@ class Admin::CustomersController < ApplicationController
   def update
      @customer = Customer.find(params[:id])
      @customer.update(customer_params)
+     # とりあえず以下の分岐は後で。
+     redirect_to edit_admin_customer_path(@customer)
   end
-  
+
   private
   # ストロングパラメータ
   def customer_params
-    params.require(:customer).permit(:last_name, :introduction, :price, :image)
+    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number, :email, :is_deleted)
   end
 end

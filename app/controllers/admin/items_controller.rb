@@ -25,7 +25,7 @@ class Admin::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.update(item_params)
     # show画面でもよいのか？？
-    redirect_to admin_items_path(@item.id)
+    redirect_to admin_items_path(@item)
   end
 
   private
