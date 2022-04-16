@@ -17,15 +17,13 @@ Rails.application.routes.draw do
   ## routing一覧からアクションをヒントにonlyで制限
   namespace :admin do
     resources :items, only: [:index, :new, :show, :edit, :create, :update]
-    resources :homes
     resources :customers, only: [:index, :show, :edit, :update]
     resources :orders, only: [:index, :show]
-    ####　後で消す。 resources :order_details, only: [:update]
   end
 
   namespace :public do
     resources :items, only: [:index, :show]
-    resources :homes
+    resources :homes #後で消す
     resources :customers, only: [:show, :edit, :update]
     resources :orders, only: [:new, :create, :index, :show]
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
