@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  ### 後でrootパス設定
-  ### root to: 'homes#top'
+  get '/admin', to: 'admin/homes#top'
 
   # 管理者用
   # URL /admin/sign_in ...
@@ -20,8 +19,8 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :new, :show, :edit, :create, :update]
     resources :homes
     resources :customers, only: [:index, :show, :edit, :update]
-    resources :orders, only: [:show, :update]
-    resources :order_details, only: [:update]
+    resources :orders, only: [:index, :show]
+    ####　後で消す。 resources :order_details, only: [:update]
   end
 
   namespace :public do
