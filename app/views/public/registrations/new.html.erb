@@ -1,29 +1,54 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<h4>新規会員登録</h4>
+<%= form_with model: @customer, url: new_customer_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <h6>氏名</h6><h6>(姓)</h6><%= f.text_field :last_name %>
+    <h6>(名)</h6><%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <h6>フリガナ</h6>
+    <h6>(セイ)</h6><%= f.text_field :last_name_kana %>
+    <h6>(メイ)</h6><%= f.text_field :first_name_kana %>
+  </div>
+  <div class="field">
+    <%= f.label :email, "メールアドレス" %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-
   <div class="field">
+    <h6>郵便番号(ハイフンなし)</h6>
+    <%= f.number_field :postal_code %>
+  </div>
+  <div class="field">
+    <h6>住所</h6>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <h6>電話番号(ハイフンなし)</h6>
+    <%= f.telephone_field :phone %>
+  </div>
+  <div class="field">
+    <h6>パスワード(6文字以上)</h6>
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <% end %>
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
-
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <h6></h6>
+    <%= f.label :password_confirmation, "(確認用)" %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+  </div><br />
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+    <%= f.submit "新規登録" %>
+  </div><br />
 <% end %>
 
-<%= render "public/shared/links" %>
+<h6>既に登録済みの方</h6>
+<%= link_to "こちら", new_customer_session_path %> からログインしてください。
+<!--以下を後で消去-->
+<!--画面では log in でリンクを表示-->
+<!--多分、dveviseでsessions.html,erb に遷移するよう内部で設定されているのかも？-->
+<!--%= render "public/shared/links" %>-->
