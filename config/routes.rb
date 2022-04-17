@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'public/homes#top'
+  get '/about', to: 'public/homes#about'
   get '/admin', to: 'admin/homes#top'
 
   # 管理者用
@@ -14,7 +16,6 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
-  ## routing一覧からアクションをヒントにonlyで制限
   namespace :admin do
     resources :items, only: [:index, :new, :show, :edit, :create, :update]
     resources :customers, only: [:index, :show, :edit, :update]
@@ -23,7 +24,6 @@ Rails.application.routes.draw do
 
   namespace :public do
     resources :items, only: [:index, :show]
-    resources :homes #後で消す
     resources :customers, only: [:show, :edit, :update]
     resources :orders, only: [:new, :create, :index, :show]
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
