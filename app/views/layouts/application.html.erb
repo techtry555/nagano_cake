@@ -7,8 +7,7 @@
     <%= csp_meta_tag %>
     <!--追記-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <!--以下１文修正。app/assets 配下のファイルを参照する【link_tag】から、 -->
-    <!--app/javascript 配下のファイルを参照する【pack_tag】へ修正。-->
+
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -24,7 +23,7 @@
           <!--elsif-->
           <!--end-->
 
-          <!-- login後-->
+          <!-- ログイン後-->
           <% if admin_signed_in? %>
             <li>
               <%= link_to  "商品一覧" , admin_items_path %>
@@ -36,9 +35,9 @@
               <%= link_to  "注文履歴一覧" , admin_path %>
             </li>
             <li>
-              <%= link_to  "ログアウト" , new_admin_session_path %>
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
             </li><br />
-          <!-- login前-->
+          <!-- ログアウト前-->
           <% else %>
             <li>
               <%= link_to  "About" , about_path %>
