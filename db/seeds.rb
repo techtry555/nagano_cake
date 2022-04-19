@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+## find_or_create_by(id :1)は、id:1をまずfindする。なければcreateする意。
+## adminユーザーを重複して作成してしまうことを防ぐ事ができる。
+Admin.find_or_create_by(id: 1) do |admin|
+ admin.email = "example@example.com"
+ admin.password = "example"
+end

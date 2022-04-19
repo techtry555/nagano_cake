@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
+  namespace :admin do
+    resources :items, only: [:index, :new, :show, :edit, :create, :update]
+    resources :customers, only: [:index, :show, :edit, :update]
+    resources :orders, only: [:index, :show]
+  end
 
   # 顧客用
   # URL /customers/sign_in ...
@@ -15,13 +20,6 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
-
-  namespace :admin do
-    resources :items, only: [:index, :new, :show, :edit, :create, :update]
-    resources :customers, only: [:index, :show, :edit, :update]
-    resources :orders, only: [:index, :show]
-  end
-
   namespace :public do
     resources :items, only: [:index, :show]
     resources :customers, only: [:show, :edit, :update]
