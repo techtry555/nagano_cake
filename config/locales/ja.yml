@@ -1,0 +1,7 @@
+# 0とcredit_card, 1とtransferが紐づいていたものを日本語化する
+ja: # 日本語の設定
+  enums: # enumの設定
+    order: # モデル名
+      payment_method: # カラム名 ## [enumで番号と紐付けた要素]を以下追加
+        credit_card: "クレジットカード"
+        transfer: "銀行振込"
