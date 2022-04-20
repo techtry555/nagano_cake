@@ -23,18 +23,18 @@
           <!--elsif-->
           <!--end-->
 
-          <!-- ログイン後-->
+          <!-- 管理者ページかつログイン後-->
           <% if admin_signed_in? %>
-            <li><%= link_to  "商品一覧" , admin_items_path %></li>
-            <li><%= link_to  "会員一覧" , admin_customers_path %></li>
-            <li><%= link_to  "注文履歴一覧" , admin_path %></li>
+            <li><%= link_to "商品一覧", admin_items_path %></li>
+            <li><%= link_to "会員一覧", admin_customers_path %></li>
+            <li><%= link_to "注文履歴一覧", admin_path %></li>
             <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li><br />
-          <!-- ログアウト前-->
+          <!-- 管理者ページかつログアウト前-->
           <% else %>
-            <li><%= link_to  "About" , about_path %></li>
-            <li><%= link_to  "商品一覧" , admin_items_path %></li>
-            <li><%= link_to  "新規登録" , new_admin_item_path %></li>
-            <li><%= link_to  "ログイン" , new_admin_session_path %></li><br />
+            <li><%= link_to "About", about_path %></li>
+            <li><%= link_to "商品一覧", admin_items_path %></li>
+            <li><%= link_to "新規登録", new_admin_item_path %></li>
+            <li><%= link_to "ログイン", new_admin_session_path %></li><br />
           <% end %>
         </ul>
       </div>
