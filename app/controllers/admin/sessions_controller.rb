@@ -21,7 +21,7 @@ class Admin::SessionsController < Devise::SessionsController
   protected
   ## deviseのメソッド
   def after_sign_in_path_for(resource)
-    admin_path # 管理者top/注文履歴一覧画面
+    admin_path  # 管理者topの注文履歴一覧画面
   end
 
   def after_sign_out_path_for(resource)

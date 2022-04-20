@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'public/homes#top'
   get '/about', to: 'public/homes#about'
+  get '/customers/my_page', to: 'public/customers#my_page'
+  get '/customers/unsubscribe', to: 'public/customers#unsubscribe'
   get '/admin', to: 'admin/homes#top'
 
   # 管理者用
