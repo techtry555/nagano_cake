@@ -21,14 +21,12 @@ class Public::SessionsController < Devise::SessionsController
   protected
   ## deviseのメソッド
   def after_sign_in_path_for(resource)
-    admin_path  # 管理者topの注文履歴一覧画面
+    root_path
   end
 
   def after_sign_out_path_for(resource)
-    new_admin_session_path
+    root_path
   end
-
-  # protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
