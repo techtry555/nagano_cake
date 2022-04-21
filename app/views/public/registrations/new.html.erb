@@ -27,7 +27,7 @@
 
     <div class="row">
       <label class="col-sm-4">郵便番号(ハイフンなし)</label>
-      <div class="col-sm-8"><%= f.number_field :postal_code %></div>
+      <div class="col-sm-8"><%= f.text_field :postal_code %></div>
     </div>
 
     <div class="row">
@@ -42,12 +42,12 @@
 
     <div class="row">
       <label class="col-sm-4">パスワード(6文字以上)</label>
-      <div class="col-sm-8"> <%= f.password_field :password %></div>
+      <div class="col-sm-8"> <%= f.text_field :password %></div>
     </div>
 
     <div class="row">
       <label class="col-sm-4">パスワード(確認用)</label>
-      <div class="col-sm-8"> <%= f.password_field :password_confirmation, autocomplete: "new-password" %></div>
+      <div class="col-sm-8"> <%= f.text_field :password_confirmation, autocomplete: "new-password" %></div>
     </div><br />
 
     <div class="form-group">
