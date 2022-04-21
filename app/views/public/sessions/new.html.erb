@@ -1,19 +1,21 @@
-<h4>ログイン</h>
+<h4>ログイン</h4><br />
 
-<h6>会員の方はこちらからログイン</h6>
-<!--form_with-->
+<h6>会員の方はこちらからログイン</h6><br />
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+
+  <div class="container">
+    <div class="row">
+      <label class>メールアドレス</label>
+      <div class><%= f.text_field :email, autofocus: true, autocomplete: "email" %></div>
+    </div>
+    <div class="row">
+      <label class>パスワード</label>
+      <div class><%= f.text_field :password, autocomplete: "current-password" %></div>
+    </div><br />
+    <div class="row">
+    <%= f.submit 'ログイン', class: "btn btn-primary" %>
+    </div><br />
   </div>
-  <div class="field">
-    <%= f.label :password, "パスワード" %>
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div><br />
-  <div class="actions">
-    <%= f.submit "ログイン" %>
-  </div><br />
 <% end %>
 
 <!--以下を後で消去-->
