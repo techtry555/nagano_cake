@@ -1,6 +1,6 @@
 <h4>新規会員登録</h4>
 
-<%= form_with model: @customer, url: new_customer_registration_path do |f| %>
+<%= form_with model: resource, url: customer_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
 
   <div class="container">
@@ -37,7 +37,7 @@
 
     <div class="row">
       <label class="col-sm-4">電話番号(ハイフンなし)</label>
-      <div class="col-sm-8"> <%=f.text_field :phone %></div>
+      <div class="col-sm-8"> <%=f.text_field :telephone_number %></div>
     </div>
 
     <div class="row">
@@ -50,7 +50,7 @@
       <div class="col-sm-8"> <%= f.text_field :password_confirmation, autocomplete: "new-password" %></div>
     </div><br />
 
-    <div class="form-group">
+    <div class="row">
       <%= f.submit '新規登録', class: "btn btn-success" %>
     </div>
 
