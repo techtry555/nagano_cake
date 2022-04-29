@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   get '/customers/unsubscribe', to: 'public/customers#unsubscribe'
   get '/admin', to: 'admin/homes#top'
 
-  # 管理者用
-  # URL /admin/sign_in ...
+  # 管理者用 ## URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
@@ -17,8 +16,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show]
   end
 
-  # 顧客用
-  # URL /customers/sign_in ...
+  # 顧客用  ## URL /customers/sign_in ...
   devise_for :customers,skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
