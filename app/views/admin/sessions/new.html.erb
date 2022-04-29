@@ -1,20 +1,20 @@
-<h1>管理者ログイン</h1>
-<!--今回、管理者側はログイン機能のみを使用するため、このファイル(session)のみ修正-->
+<h4>管理者ログイン</h4><br />
+
 <!--form_forの修正。-->
 <%= form_with model: @admin, url: admin_session_path do |f| %>
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password, "パスワード" %>
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "ログイン" %>
+  <div class="container">
+    <div class="row">
+      <label class>メールアドレス　</label>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div><br />
+    <div class="row">
+      <label class>パスワード　　　</label>
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div><br />
+    <div class="row">
+      <%= f.submit "ログイン", class: "btn btn-primary" %>
+    </div><br />
   </div>
 <% end %>
 
-<%= render "admin/shared/links" %> <%# adminsから修正 %>
+<%= render "admin/shared/links" %>
